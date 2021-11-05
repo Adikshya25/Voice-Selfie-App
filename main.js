@@ -8,10 +8,11 @@ function start() {
 recognition.onresult= function(event) {
     console.log(event);
     var Content= event.results[0][0].transcript;
-    console.log(Content);
+  
     document.getElementById("text_box").innerHTML=Content;
-    if(Content== "take my selfie"){
-        console.log("Taking selfie....")
+    console.log(Content);
+    if(Content== "Take my selfie"){
+        console.log("Taking selfie....");
         speak();
     }
 }
@@ -37,8 +38,8 @@ Webcam.set({
 
 
 function take_snapshot(){
-    Webcam.snap(function(data_url){
-        document.getElementById("result").innerHTML= '<img id="selfie_img" src="' + data_url + '">';
+    Webcam.snap(function(data_uri){
+        document.getElementById("result").innerHTML= '<img id="selfie_img" src="' + data_uri + '"/>';
     });
 }
 
